@@ -21,7 +21,7 @@ export default function JobCard({ job }: JobCardProps) {
     <Card shadow="sm" padding="lg" radius="md" withBorder style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Card.Section p="md">
         <Group justify="space-between" align="flex-start" wrap="nowrap">
-          <Image src={`http://localhost:3000${job.companyLogo}`} alt={job.companyName} width={60} height={60} radius="md" />
+          <Image src={`https://jobportalserver.prasoonpr.tech${job.companyLogo}`} alt={job.companyName} width={60} height={60} radius="md" />
           <Badge color="blue" variant="light">
             {formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}
           </Badge>
