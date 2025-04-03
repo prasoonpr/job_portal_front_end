@@ -65,7 +65,7 @@ export default function Header() {
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         borderRadius: "50px",       // Adjusted border radius
         margin: "10px auto",        // Margin to center the entire box
-        maxWidth: "60%",            // Optional: Limit the max width
+        maxWidth: "70%",            // Optional: Limit the max width
         maxHeight:"60px",
         marginTop:"25px",
        
