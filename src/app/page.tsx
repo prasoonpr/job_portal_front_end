@@ -15,7 +15,8 @@ export default function Home() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/jobs", {
+        // const response = await fetch("http://localhost:3000/jobs", {
+          const response = await fetch("https://jobportalserver.prasoonpr.tech/jobs", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -44,7 +45,8 @@ export default function Home() {
   
       // Construct query parameters based on filters
       const queryParams = new URLSearchParams(filters).toString();
-      const response = await fetch(`http://localhost:3000/jobs?${queryParams}`, {
+      const response = await fetch(`https://jobportalserver.prasoonpr.tech/jobs?${queryParams}`, {
+        // const response = await fetch(`http://localhost:3000/jobs?${queryParams}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

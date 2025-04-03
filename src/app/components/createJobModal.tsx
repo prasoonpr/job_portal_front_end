@@ -42,7 +42,8 @@ export default function CreateJobModal({ opened, onClose }: CreateJobModalProps)
         formData.append(key, data[key]);
       }
     }
-      const response = await fetch("http://localhost:3000/jobs", {
+      const response = await fetch("https://jobportalserver.prasoonpr.tech/jobs", {
+        // const response = await fetch("http://localhost:3000/jobs", {
         method: "POST",
         body: formData
       });
