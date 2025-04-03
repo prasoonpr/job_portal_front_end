@@ -112,6 +112,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                   </Text>
                   <RangeSlider
                     {...field}
+                    value={Array.isArray(field.value) ? [field.value[0], field.value[1]] : [0, 0]} 
                     min={0}
                     max={2000}
                     step={5}
@@ -122,7 +123,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                     onChange={(e) => {
                       field.onChange(e);
                       handleSubmit(onSubmit)();
-                    }}
+                    }}  
                   />
                 </Stack>
               )}
