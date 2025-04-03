@@ -15,7 +15,7 @@ export default function CreateJobModal({ opened, onClose }: CreateJobModalProps)
     defaultValues: {
       jobTitle: "",
       companyName: "",
-      companyLogo:"",
+      companyLogo:[],
       location: "",
       jobType: "",
       workLocation: "",
@@ -111,7 +111,7 @@ export default function CreateJobModal({ opened, onClose }: CreateJobModalProps)
               name="companyLogo"
               control={control}
               render={({ field }) => (
-                <FileInput {...field}  onChange={(file) => field.onChange(file ? [file] : [])} 
+                <FileInput {...field} value={field.value[0] || null}  onChange={(file) => field.onChange(file ? [file] : [])} 
                  placeholder="Upload logo" rightSection={<IconUpload size={14} />} />
               )}
             />
