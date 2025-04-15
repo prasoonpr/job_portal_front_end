@@ -67,12 +67,15 @@ export default function Home() {
   
 
   return (
-    <main>
+    <main style={{backgroundColor:"#F9F8FC "}}>
+      <div style={{backgroundColor:"white",boxShadow: "0 2px 2px rgba(0, 0, 0, 0.1)" }}>
       <Header />
-      <Container size="xl">
+
         <FilterSection onFilter={handleFilter} />
+      </div>
+      {/* <Container size="xl"> */}
         <JobList jobs={filteredJobs} />
-      </Container>
+      {/* </Container> */}
     </main>
   );
 }

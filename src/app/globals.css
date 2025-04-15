@@ -131,3 +131,9 @@ body {
   }
 }
 
+.custom-placeholder::placeholder {
+  color: gray;
+  font-weight: 200;
+  opacity: 1;
+  font-size: 13;
+}

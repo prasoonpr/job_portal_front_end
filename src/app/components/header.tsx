@@ -54,24 +54,25 @@ export default function Header() {
   return (
     <Box
       component="header"
-      // height={70}
+      
       p="md"
       bg="white"
-      // withBorder={false}
+      
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         borderRadius: "50px",       // Adjusted border radius
-        margin: "10px auto",        // Margin to center the entire box
-        maxWidth: "70%",            // Optional: Limit the max width
-        maxHeight:"60px",
+        margin: "10px auto",  
+        // marginBottom:"0px",      // Margin to center the entire box
+        maxWidth: "62%",            // Optional: Limit the max width
+        maxHeight:"55px",
         marginTop:"25px",
        
       }}
     >
-      <Container size="xl">
+      {/* <Container size="xl"> */}
         <Group >
           <Group>
             <Image
@@ -93,8 +94,8 @@ export default function Header() {
           </Group>
           <Button
             radius="xl"
-            size="md"
-            bg="violet.5"
+            size="sm"
+            
             style={{
               marginLeft:"10px",
               background: "linear-gradient(to right, #8e2de2, #4a00e0)",
@@ -104,8 +105,9 @@ export default function Header() {
             Create Jobs
           </Button>
         </Group>
-      </Container>
+      {/* </Container> */}
       <CreateJobModal opened={modalOpened} onClose={() => setModalOpened(false)} />
     </Box>
+    
   )
 }

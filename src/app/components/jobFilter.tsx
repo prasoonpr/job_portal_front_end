@@ -2,7 +2,7 @@
 
 import { useForm, Controller } from "react-hook-form"
 import { Group, TextInput, Select, RangeSlider, Text, Paper, Stack, Box, Divider } from "@mantine/core"
-import { IconSearch, IconMapPin, IconBriefcase } from "@tabler/icons-react"
+import { IconSearch, IconMapPin, IconBriefcase, IconUser, IconChevronDown } from "@tabler/icons-react"
 
 interface FilterSectionProps {
   onFilter: (filters: any) => void
@@ -23,9 +23,15 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
   }
 
   return (
-    <Paper p="md" mb="sm" style={{ boxShadow: "0 2px 1px rgba(0, 0, 0, 0.1)" }}>
+    <Paper p="sm"  radius={0} style={{marginBottom:"5px"}}>
       <form >
-        <Group style={{ justifyContent: "space-between", width: "100%" }}>
+        {/* <Group style={{ width: "100%" }}> */}
+        <Group
+            wrap="wrap"
+            justify="center"
+            align="start"
+            style={{ width: "100%", marginLeft:"30px"}}
+          >
 
           {/* Search Input */}
           <Controller
@@ -35,10 +41,13 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
               <TextInput
                 {...field}
                 placeholder="Search By Job Title, Role"
-                leftSection={<IconSearch size={16} />}
+                leftSection={<IconSearch  size={16} />}
                 size="md"
                 variant="unstyled"
                 styles={{ input: { fontSize: "13px" } }}
+                classNames={{
+                  input: "custom-placeholder", 
+                }}
                 onChange={(e) => {
                   field.onChange(e);
                   handleSubmit(onSubmit)();
@@ -47,7 +56,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
             )}
           />
 
-          <Divider orientation="vertical" size="xs" color="gray" style={{ height: "40px", marginTop: "10px", marginLeft: "40px" }} />
+          <Divider orientation="vertical" size="sm" color="gray.1" style={{ height: "40px", marginTop: "10px", marginLeft: "40px" }} />
 
           {/* Location Select */}
           <Controller
@@ -57,13 +66,17 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
               <Select
                 {...field}
                 placeholder="Preferred Location"
-                leftSection={<IconMapPin size={16} />}
+                leftSection={<IconMapPin color="gray" size={16} />}
                 data={["Bangalore", "Mumbai", "Delhi", "Hyderabad", "Chennai"]}
                 size="md"
                 clearable
                 variant="unstyled"
-                styles={{ input: { fontSize: "13px" } }}
-                onChange={(e) => {
+               style={{maxWidth:"230px"}}
+                classNames={{
+                  input: "custom-placeholder", 
+                }}
+                rightSection={<IconChevronDown size={16} />} 
+                  onChange={(e) => {
                   field.onChange(e ?? "");
                   handleSubmit(onSubmit)();
                 }}
@@ -71,7 +84,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
             )}
           />
 
-          <Divider orientation="vertical" size="xs" color="gray" style={{ height: "40px", marginTop: "10px", marginLeft: "20px" }} />
+          <Divider orientation="vertical" size="sm" color="gray.1" style={{ height: "40px", marginTop: "10px", marginLeft:"20px" }} />
 
           {/* Job Type Select */}
           <Controller
@@ -81,12 +94,17 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
               <Select
                 {...field}
                 placeholder="Job Type"
-                leftSection={<IconBriefcase size={16} />}
+                leftSection={<IconUser color="gray" size={16} />}
+                
                 data={["Full-time", "Part-time", "Contract", "Freelance", "Internship"]}
                 size="md"
                 clearable
                 variant="unstyled"
-                styles={{ input: { fontSize: "13px" } }}
+                rightSection={<IconChevronDown size={16} />} 
+                 style={{maxWidth:"230px"}}
+                classNames={{
+                  input: "custom-placeholder", 
+                }}
                 onChange={(e) => {
                   field.onChange(e ?? "");
                   handleSubmit(onSubmit)();
@@ -95,7 +113,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
             )}
           />
 
-          <Divider orientation="vertical" size="xs" color="gray" style={{ height: "40px", marginTop: "10px" }} />
+          <Divider orientation="vertical" size="sm" color="gray.1" style={{ height: "40px", marginTop: "10px" ,marginLeft:"20px"}} />
 
           {/* Salary Range Slider */}
           <Box style={{ flex: 1, maxWidth: "300px", marginLeft: "20px" }}>
@@ -117,8 +135,13 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                     max={2000}
                     step={5}
                     minRange={10}
-                    thumbSize={4}
+                    thumbSize={10} // small dots
+                    size="xs" // small track height
                     color="dark"
+                    styles={{
+                      track: { height: 2 },
+                      thumb: { width: 11, height: 11 },
+                    }}
                     style={{ marginTop: "4px", maxWidth: "200px" }}
                     onChange={(e) => {
                       field.onChange(e);
