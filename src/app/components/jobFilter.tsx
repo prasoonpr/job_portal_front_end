@@ -44,7 +44,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                 leftSection={<IconSearch  size={16} />}
                 size="md"
                 variant="unstyled"
-                styles={{ input: { fontSize: "13px" } }}
+                styles={{ input: { fontSize: "12px" } }}
                 classNames={{
                   input: "custom-placeholder", 
                 }}
@@ -71,6 +71,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                 size="md"
                 clearable
                 variant="unstyled"
+                styles={{ input: { fontSize: "12px" } }}
                style={{maxWidth:"230px"}}
                 classNames={{
                   input: "custom-placeholder", 
@@ -102,6 +103,7 @@ export default function FilterSection({ onFilter }: FilterSectionProps) {
                 variant="unstyled"
                 rightSection={<IconChevronDown size={16} />} 
                  style={{maxWidth:"230px"}}
+                 styles={{ input: { fontSize: "12px" } }}
                 classNames={{
                   input: "custom-placeholder", 
                 }}
